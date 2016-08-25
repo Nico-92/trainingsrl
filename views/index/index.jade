@@ -1,0 +1,159 @@
+extends ../layout
+
+block content
+	.row
+		.col-md-3.header
+			img(src="/assets/images/logo-training.gif")
+	.row(ng-controller="indexController")
+		.col-md-6.hidden-sm.hidden-xs
+			img.img-responsive.img-responsive-custom(src="/assets/images/iscrizione1.jpg")
+			img.img-responsive.img-responsive-custom(src="/assets/images/iscrizione2.jpg")
+			img.img-responsive.img-responsive-custom(src="/assets/images/iscrizione3.jpg")
+		.col-md-6.col-sm-12
+			form.form-group(ng-cloak name="subscription")
+				.row
+					.col-md-6.col-sm-12.form-iscrizione
+						h2
+							| Dati anagrafici
+						label Nome
+						input.form-control.input-md(type="text" ng-model="user.name" name="name" placeholder="Nome" required)
+						.help-block(ng-messages="subscription.name.$error" ng-if="subscription.name.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+						label Cognome
+						input.form-control.input-md(type="text" ng-model="user.surname" name="surname"  placeholder="Cognome" required)
+						.help-block(ng-messages="subscription.surname.$error" ng-if="subscription.surname.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+						label Data di nascita 
+						input.form-control.input-md(type="date" ng-model="user.birthdate" name="birthdate" placeholder="Data di nascita" required)
+						.help-block(ng-messages="subscription.birthdate.$error" ng-if="subscription.birthdate.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+						label Luogo di nascita
+						input.form-control.input-md(type="text" ng-model="user.birthpalce" name="birthpalce" placeholder="Luogo di nascita" required)
+						.help-block(ng-messages="subscription.birthpalce.$error" ng-if="subscription.birthpalce.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+						label Codice fiscale
+						input.form-control.input-md(type="text" ng-model="user.taxcode" name="taxcode" placeholder="Codice fiscale" required)
+						.help-block(ng-messages="subscription.taxcode.$error" ng-if="subscription.taxcode.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+						label Residente a
+						input.form-control.input-md(type="text" ng-model="user.address" name="address" placeholder="Residente a" required)
+						.help-block(ng-messages="subscription.address.$error" ng-if="subscription.address.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+						label CAP
+						input.form-control.input-md(type="text" ng-model="user.postalcode" name="postalcode" placeholder="CAP" required)
+						.help-block(ng-messages="subscription.postalcode.$error" ng-if="subscription.postalcode.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+						label Cellulare
+						input.form-control.input-md(type="text" ng-model="user.phone" name="phone" placeholder="Cellulare" required)
+						.help-block(ng-messages="subscription.phone.$error" ng-if="subscription.phone.$touched")
+							p.alert.alert-danger(ng-message="required") Campo obbligatorio
+					.col-md-6.col-sm-12.form-iscrizione
+						h2
+							| Formazione accademica
+						label Tipo istituto
+						input.form-control.input-md(type="text" ng-model="education" placeholder="Tipo istituto")
+						label Nome istituto
+						input.form-control.input-md(type="text" ng-model="education" placeholder="Nome istituto")
+						label Città
+						input.form-control.input-md(type="text" ng-model="education" placeholder="Città")
+						label Materie principali
+						input.form-control.input-md(type="text" ng-model="education" placeholder="Materie principali")
+						label Votazione finale
+						input.form-control.input-md(type="text" ng-model="education" placeholder="Votazione finale")
+				.row
+					.col-md-6.col-sm-12.form-iscrizione
+						h2
+							| Conoscenza lingue
+						.row
+							.col-md-12
+								button.btn.btn-default(ng-click="addLanguage()") Salva lingua
+						.row
+							.col-md-6
+								select.form-control
+									option(ng-repeat="language in availableLanguages")
+										{{language}}
+							.col-md-6
+								select.form-control
+									option(ng-repeat="level in knoledgeLevels")
+										{{level}}
+						.row(ng-repeat="language in languages")
+							.col-md-6
+								select.form-control
+									option(ng-repeat="language in availableLanguages")
+										{{language}}
+							.col-md-6
+								select.form-control
+									option(ng-repeat="level in knoledgeLevels")
+										{{level}}
+					.col-md-6.col-sm-12.form-iscrizione
+						h2
+							| Informazioni generali
+						label 
+							| Com'e' venuto a conoscenza dei nostri corsi:
+						input.form-control.input-md(type="text" ng-model="generalinfo.info1")
+						label
+							| Per quali ragioni ha deciso di iscriversi?
+						input.form-control.input-md(type="text" ng-model="generalinfo.info2")
+						label
+							| Quali risultati pensa di ottenere dal corso
+						input.form-control.input-md(type="text" ng-model="generalinfo.info3")
+						label
+							| Quali sono le sue aspirazioni per la futura attivita' professionale?
+						input.form-control.input-md(type="text" ng-model="generalinfo.info4")
+						label
+							| Note e osservazioni
+						input.form-control.input-md(type="text")
+				.row
+					.col-md-6.col-sm-12.form-iscrizione
+						h2
+							| Scelta del corso/i
+						button.btn.btn-default(ng-click="addLanguage()") Salva corso
+						select.form-control(ng-option="course as course.label for course in availableCourses track by course.id")
+						//- .row(ng-repeat="course in courses")
+						//- 	.col-md-6
+						//- 		select.form-control
+						//- 			option(ng-repeat="course in availableCourses")
+						//- 				{{course}}
+					.col-md-6.col-sm-12.form-iscrizione
+						h2
+							| Logistica
+						p Gli allievi dei corsi che si tengono presso la sede TRAINing srl di Verona possono usufruire di apposite strutture convenzionate per la refezione e l'alloggio:
+						.checkbox
+							label
+								input(type="checkbox" ng-model="logistic.food")
+								| Pasto completo, bevande e caffe' inclusi (pranzo: 8 euro) 
+
+						.checkbox
+							label
+								input(type="checkbox" ng-model="logistic.room1")
+								| Alloggio in hotel a 3 stelle (camera singola: 58 euro, camera doppia uso singolo: 85 euro), colazione inclusa 
+
+						.checkbox
+							label
+								input(type="checkbox" ng-model="logistic.room2")
+								| Alloggio in hotel a 2 stelle (camera doppia: 29 euro), colazione e navetta da e per il CdF inclusi 
+				.row
+					.col-md-6.col-sm-12.form-iscrizione
+						h2
+							| Visita idoneità psico-fisica
+						P Per poter svolgere attivita' connesse con la sicurezza della circolazione dei treni e dell'esercizio ferroviario, e' necessario superare la visita medica per l'assunzione presso l'Unita' Sanitaria competente della Direzione Sanita' di Rete Ferroviaria Italiana SpA.
+						.checkbox
+							label
+								input(type="checkbox" ng-model="health.certification")
+								| Sono in possesso del certificato di idoneita' psico-fisica per la mansione/le mansioni interessata/e 
+						.checkbox
+							label
+								input(type="checkbox" ng-model="health.authorization")
+								| Autorizzo TRAINing srl a richiedere la visita medica per la mansione/le mansioni interessata/e 
+						.checkbox
+							label
+								input(type="checkbox" ng-model="health.askCertification")
+								| Richiedero' la visita medica dopo la conclusione del corso, consapevole che in caso di esito negativo non potro' essere ammesso agli esami per il conseguimento della "Certificazione del requisito professionale" e/o della relativa abilitazione/licenza/certificato 
+
+						P NB: Il costo della visita medica varia a seconda dalla/e mansione/i mansioni interessata/e e verra' comunicato all'interessato al momento della prenotazione.
+						P Per il rilascio della "Certificazione del requisito professionale" e per il rilascio della "Licenza Europea del Macchinista" dovra' essere presentata in originale la certificazione medica Mod SAN 6 che attesta l'idoneita' psico-fisica per la/e mansione/i interessata/e.
+
+					.col-md-6.col-sm-12.form-iscrizione
+						button.btn.btn-default(ng-click="submit()" )
+							//- ng-disabled="subscription.$invalid"
+							| Vai

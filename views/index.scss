@@ -1,0 +1,36 @@
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@font-face {
+	font-family: "Arvo";
+	src: url("assets/fonts/Arvo-Regular.ttf");
+}
+@font-face {
+	font-family: "Arvo-Bold";
+	src: url("assets/fonts/Arvo-Bold.ttf");
+}
+$backgoundColor: #fff;
+
+body {
+	font-family: "Arvo";
+	background-color: $backgoundColor;
+}
+h2{
+	margin-top: 0px !important;
+}
+.img-responsive-custom{
+	width: 100%;
+}
+.header{
+	margin: 20px;
+}
+.form-iscrizione{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 40px;
+	label{
+		margin-top: 20px;
+	}
+	button, select{
+		margin-bottom: 20px;
+	}
+}
