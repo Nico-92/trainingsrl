@@ -51,6 +51,5 @@ gulp.task('copyAssetstoSrc', function() {
 
 gulp.task('copyFiletoSrc', function() {
   gulp.src(['views/**/*.js', 'views/**/*.html'])
-    .pipe(gulp.dest('src'))
-    .pipe($.notify('File js copiati su SRC'));
+    .pipe(gulp.dest('src'));
 })

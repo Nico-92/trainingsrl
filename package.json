@@ -34,6 +34,8 @@
     "jade": "~1.11.0",
     "lodash-node": "^3.10.2",
     "morgan": "~1.7.0",
+    "mysql": "^2.11.1",
+    "node-mysql": "^0.4.2",
     "require-dir": "^0.3.0",
     "serve-favicon": "~2.3.0"
   }

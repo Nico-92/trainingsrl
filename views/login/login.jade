@@ -1,0 +1,13 @@
+extends ../layout
+block content
+	.wrapper(ng-controller="loginController")
+		form.form-signin
+			h2.form-signin-heading Effettua il login
+			input.form-control(type='text', name='username', placeholder='Nome utente', ng-model="login.user" required, autofocus='' ng-click="error=false")
+			input.form-control(type='password', name='password', placeholder='Password', ng-model="login.password" required ng-click="error=false")
+			//- label.checkbox
+			//- 	input#rememberMe(type='checkbox', ng-model="rememberMe")
+			//- 	| Ricordami
+			button.btn.btn-lg.btn-primary.btn-block(ng-click="doLogin()") Login
+			.alert.alert-danger(ng-show="error")
+				| Utente o password errati
