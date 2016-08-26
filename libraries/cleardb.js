@@ -7,8 +7,6 @@ var connection = mysql.createConnection({
     database: 'heroku_8d40c9dce4ad300'
 });
 
-connection.connect();
-
 var login = function(param, callback) {
 	console.log(param)
     /*
@@ -28,10 +26,9 @@ var login = function(param, callback) {
 	*/
     connection.query('select * from users where username = "' + param.username + '" and password = "' + param.password + '" ;', function(err, rows, fields) {
         if (err) throw err;
+        console.log(rows[0]);
         callback(rows[0]);
     });
-
-    // connection.end();
 }
 
 

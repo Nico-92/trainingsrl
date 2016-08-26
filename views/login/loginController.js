@@ -7,7 +7,7 @@ var loginController = function($scope, loginService, ipCookie) {
             loginService.login($scope.login).success(function(result) {
                 if(result === 'true'){
                     // if($scope.rememberMe === true){
-                        ipCookie(logged, 'true', { path: '/' });
+                        ipCookie('logged', 'true', { path: '/' });
                     // }
                 }else{
                     $scope.error = true;
