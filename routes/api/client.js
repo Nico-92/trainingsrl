@@ -3,13 +3,8 @@ var router = express.Router();
 var _ = require('lodash-node');
 var mysql = require('../../libraries/cleardb.js');
 
-// LOGGA UN UTENTE GIA ESISTENTE
-router.post('/login', function(req, res, next) {
-    var query =  {
-        username: req.body.loginParams.user,
-        password: req.body.loginParams.password
-    };
-    mysql.login(query, function(result){
+router.post('/client', function(req, res, next) {
+    mysql.createNewClient(req.body.object, function(result){
     	if(result !== undefined){
     		res.json('true');
     	}else{

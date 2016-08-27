@@ -1,0 +1,6 @@
+.success-message p {
+  font-size: x-large; }
+
+.success-message button {
+  padding-left: 0px;
+  cursor: pointer; }

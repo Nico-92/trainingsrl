@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var login = require('./routes/login');
+var success = require('./routes/success');
+var dashboard = require('./routes/dashboard');
+var clients = require('./routes/clients');
 
 var app = express();
 
@@ -24,10 +27,14 @@ app.use(express.static(path.join(__dirname, 'src')));
 
 var api = [];
 api.push(require('./routes/api/login'));
+api.push(require('./routes/api/client'));
 app.use('/api/', api);
 
 app.use('/', routes);
 app.use('/login', login);
+app.use('/successo', success);
+app.use('/clients', clients);
+app.use('/dashboard', dashboard);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

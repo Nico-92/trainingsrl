@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 });
 
 var login = function(param, callback) {
-	console.log(param)
+    console.log(param)
     /*
 	[ RowDataPacket {
     id: 4,
@@ -24,16 +24,25 @@ var login = function(param, callback) {
     role: 2 } ]
 
 	*/
-    connection.query('select * from users where username = "' + param.username + '" and password = "' + param.password + '" ;', function(err, rows, fields) {
+    connection.query('SELECT * FROM users WHERE username = "' + param.username + '" AND password = "' + param.password + '" ;', function(err, rows, fields) {
         if (err) throw err;
         console.log(rows[0]);
         callback(rows[0]);
     });
-}
+};
+
+var createNewClient = function(param, callback) {
+    connection.query('INSERT INTO anagrafiche SET ?', param.user, function(err, rows, fields) {
+        if (err) throw err;
+        console.log(rows[0]);
+    });
+};
+
 
 
 var exports = {
-    login: login
+    login: login,
+    createNewClient: createNewClient
 };
 
 module.exports = exports;

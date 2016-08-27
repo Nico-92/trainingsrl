@@ -1,4 +1,4 @@
-var indexController = function($scope, dataService) {
+var indexController = function($scope, dataService, clientService, $location) {
     $scope.angular = 'Angular';
     $scope.availableLanguages = dataService.getAvailableLanguagess();
     $scope.knoledgeLevels = dataService.getKnoledgeLevels();
@@ -29,9 +29,15 @@ var indexController = function($scope, dataService) {
     	objectToSend.logistic = $scope.logistic;
     	objectToSend.generalinfo = $scope.generalinfo;
     	objectToSend.health = $scope.health;
+        clientService.post(objectToSend).success(function(){
+            console.log('successo')
+            $location.path( "/successo" );
+        }).error(function(error){
+            console.log(error)
+        });
     	console.log(objectToSend);
     }
 }
 
-indexController.$inject = ['$scope', 'dataService'];
+indexController.$inject = ['$scope', 'dataService', 'clientService', '$location'];
 app.controller('indexController', indexController);

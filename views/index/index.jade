@@ -1,9 +1,7 @@
 extends ../layout
 
 block content
-	.row
-		.col-md-3.header
-			img(src="/assets/images/logo-training.gif")
+	include ../header.jade
 	.row(ng-controller="indexController")
 		.col-md-6.hidden-sm.hidden-xs
 			img.img-responsive.img-responsive-custom(src="/assets/images/iscrizione1.jpg")
@@ -28,8 +26,8 @@ block content
 						.help-block(ng-messages="subscription.birthdate.$error" ng-if="subscription.birthdate.$touched")
 							p.alert.alert-danger(ng-message="required") Campo obbligatorio
 						label Luogo di nascita
-						input.form-control.input-md(type="text" ng-model="user.birthpalce" name="birthpalce" placeholder="Luogo di nascita" required)
-						.help-block(ng-messages="subscription.birthpalce.$error" ng-if="subscription.birthpalce.$touched")
+						input.form-control.input-md(type="text" ng-model="user.birthplace" name="birthplace" placeholder="Luogo di nascita" required)
+						.help-block(ng-messages="subscription.birthplace.$error" ng-if="subscription.birthplace.$touched")
 							p.alert.alert-danger(ng-message="required") Campo obbligatorio
 						label Codice fiscale
 						input.form-control.input-md(type="text" ng-model="user.taxcode" name="taxcode" placeholder="Codice fiscale" required)
@@ -71,20 +69,20 @@ block content
 							.col-md-6
 								select.form-control
 									option(ng-repeat="language in availableLanguages")
-										{{language}}
+										| {{language}}
 							.col-md-6
 								select.form-control
 									option(ng-repeat="level in knoledgeLevels")
-										{{level}}
+										| {{level}}
 						.row(ng-repeat="language in languages")
 							.col-md-6
 								select.form-control
 									option(ng-repeat="language in availableLanguages")
-										{{language}}
+										| {{language}}
 							.col-md-6
 								select.form-control
 									option(ng-repeat="level in knoledgeLevels")
-										{{level}}
+										| {{level}}
 					.col-md-6.col-sm-12.form-iscrizione
 						h2
 							| Informazioni generali

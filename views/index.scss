@@ -1,5 +1,7 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "login/login";
+@import "success/success";
+@import "clients/clients";
 
 @font-face {
 	font-family: "Arvo";
@@ -22,7 +24,10 @@ h2{
 	width: 100%;
 }
 .header{
-	margin: 20px;
+	padding: 20px;
+	.login{
+		float: right;
+	}
 }
 .form-iscrizione{
 	padding-left: 20px;

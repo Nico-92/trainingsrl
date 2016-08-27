@@ -1,0 +1,40 @@
+extends ../layout
+block content
+  include ../header.jade
+  .container(ng-controller='clientsController')
+      form
+        .form-group
+          .input-group
+            .input-group-addon
+              i.fa.fa-search
+            |         
+            input.form-control(type='text', placeholder='Cerca', ng-model='searchFish')   
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            td
+              a(href='#', ng-click="sortType = 'name'; sortReverse = !sortReverse")
+                | Sushi Roll 
+                span.fa.fa-caret-down(ng-show="sortType == 'name' && !sortReverse")
+                |             
+                span.fa.fa-caret-up(ng-show="sortType == 'name' && sortReverse")
+            td
+              a(href='#', ng-click="sortType = 'fish'; sortReverse = !sortReverse")
+                | Fish Type 
+                span.fa.fa-caret-down(ng-show="sortType == 'fish' && !sortReverse")
+                |             
+                span.fa.fa-caret-up(ng-show="sortType == 'fish' && sortReverse")
+            |         
+            td
+              a(href='#', ng-click="sortType = 'tastiness'; sortReverse = !sortReverse")
+                | Taste Level 
+                span.fa.fa-caret-down(ng-show="sortType == 'tastiness' && !sortReverse")
+                |             
+                span.fa.fa-caret-up(ng-show="sortType == 'tastiness' && sortReverse")
+        tbody
+          tr(ng-repeat='roll in sushi | orderBy:sortType:sortReverse | filter:searchFish')
+            td {{ roll.name }}
+            |         
+            td {{ roll.fish }}
+            |         
+            td {{ roll.tastiness }}

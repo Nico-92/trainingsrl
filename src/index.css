@@ -5848,6 +5848,13 @@ wrapper {
     border-top-left-radius: 0;
     border-top-right-radius: 0; }
 
+.success-message p {
+  font-size: x-large; }
+
+.success-message button {
+  padding-left: 0px;
+  cursor: pointer; }
+
 @font-face {
   font-family: "Arvo";
   src: url("assets/fonts/Arvo-Regular.ttf"); }
@@ -5867,7 +5874,9 @@ h2 {
   width: 100%; }
 
 .header {
-  margin: 20px; }
+  padding: 20px; }
+  .header .login {
+    float: right; }
 
 .form-iscrizione {
   padding-left: 20px;
