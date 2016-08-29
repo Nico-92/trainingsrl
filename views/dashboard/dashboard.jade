@@ -1,6 +1,10 @@
 extends ../layout
 block content
 	include ../header.jade
+	.row.col-md-12
+		h1
+			| Dashboard
+			i.fa.fa-question.fa-lg.tips(data-content="Questa è la dashboard. Qui si potranno vedere tutti gli <strong>ultimi eventi</strong> relativi ad ogni sezione. <br /> Questo permette di avere sottocchio ogni aspetto della gestione. <br /> Verrà aggiunto anche un campo note per promemoria veloci o per lasciare note ai collaboratori.")
 	.row
 		.col-md-4
 			a(href="/clients")

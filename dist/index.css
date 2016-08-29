@@ -5816,3 +5816,19 @@ h2 {
     margin-top: 20px; }
   .form-iscrizione button, .form-iscrizione select {
     margin-bottom: 20px; }
+
+#modal-tips .modal-dialog {
+  display: hidden;
+  width: 350px;
+  padding-top: 20%; }
+
+#modal-tips .modal-content {
+  padding: 20px 10px; }
+
+#modal-tips .btn {
+  border: 1px solid #000;
+  margin-top: 20px; }
+
+.tips {
+  padding: 10px;
+  cursor: pointer; }

@@ -2,6 +2,7 @@ extends ../layout
 block content
   include ../header.jade
   .container(ng-controller='clientsController')
+      i.fa.fa-question.fa-lg.tips(data-content="Qui si ha il controllo delle anagrafiche dei corsisti. <br /> Si possono <strong> cercare </strong>usando la barra i ricerca, e modificare od eliminare singolarmente. Potranno essere <strong> esportate in formato excel </strong>. Per ogni anagrafica si potranno <strong>collegare eventi, e stampare i relativi documenti</strong>")
       form
         .form-group
           .input-group
@@ -14,20 +15,20 @@ block content
           tr
             td
               a(href='#', ng-click="sortType = 'name'; sortReverse = !sortReverse")
-                | Sushi Roll 
+                | Nome
                 span.fa.fa-caret-down(ng-show="sortType == 'name' && !sortReverse")
                 |             
                 span.fa.fa-caret-up(ng-show="sortType == 'name' && sortReverse")
             td
               a(href='#', ng-click="sortType = 'fish'; sortReverse = !sortReverse")
-                | Fish Type 
+                | Data iscrizione
                 span.fa.fa-caret-down(ng-show="sortType == 'fish' && !sortReverse")
                 |             
                 span.fa.fa-caret-up(ng-show="sortType == 'fish' && sortReverse")
             |         
             td
               a(href='#', ng-click="sortType = 'tastiness'; sortReverse = !sortReverse")
-                | Taste Level 
+                | Residenza
                 span.fa.fa-caret-down(ng-show="sortType == 'tastiness' && !sortReverse")
                 |             
                 span.fa.fa-caret-up(ng-show="sortType == 'tastiness' && sortReverse")

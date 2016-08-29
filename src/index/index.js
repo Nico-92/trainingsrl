@@ -31,7 +31,8 @@ var indexController = function($scope, dataService, clientService, $location) {
     	objectToSend.health = $scope.health;
         clientService.post(objectToSend).success(function(){
             console.log('successo')
-            $location.path( "/successo" );
+            window.location.href="/successo";
+            // $location.path( "/successo" );
         }).error(function(error){
             console.log(error)
         });

@@ -38,11 +38,28 @@ var createNewClient = function(param, callback) {
     });
 };
 
+var getClients = function(param, callback) {
+    console.log('aaaaaaaa')
+    connection.query('SELECT * FROM anagrafiche', function(err, rows, fields) {
+        if (err) throw err;
+        callback(rows)
+    });
+};
+
+var getClient = function(param, callback) {
+    connection.query('INSERT INTO anagrafiche SET ?', param.user, function(err, rows, fields) {
+        if (err) throw err;
+        console.log(rows[0]);
+    });
+};
+
 
 
 var exports = {
     login: login,
-    createNewClient: createNewClient
+    createNewClient: createNewClient,
+    getClient: getClient,
+    getClients: getClients
 };
 
 module.exports = exports;

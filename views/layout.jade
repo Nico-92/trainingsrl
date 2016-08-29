@@ -1,10 +1,15 @@
 doctype html
 html(ng-app="app")
-  head
-    title= title
-    link(rel='stylesheet', href='/index.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/index.css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css')
+	body
+	block content
+	#modal-tips.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+		.modal-dialog(role="document")
+			.modal-content
+				.modal-body
 script(type='text/javascript', src='/libs.min.js') 
 script(type='text/javascript', src='/app.js')
 script(type='text/javascript', src='/index/index.js')
@@ -13,3 +18,8 @@ script(type='text/javascript', src='/clients/clientsController.js')
 script(type='text/javascript', src='/services/dataService.js')
 script(type='text/javascript', src='/services/loginService.js')
 script(type='text/javascript', src='/services/clientService.js')
+script.
+	$('.tips').click(function(){
+		$('#modal-tips').modal('toggle');
+		$('.modal-body').html(($(this).data("content")));
+	});

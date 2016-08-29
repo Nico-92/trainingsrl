@@ -12,7 +12,8 @@ block content
 				.row
 					.col-md-6.col-sm-12.form-iscrizione
 						h2
-							| Dati anagrafici
+							| Dati anagrafici 
+							i.fa.fa-question.fa-lg.tips(data-content="Questa è l'unica sezione che viene salvata dell'anagrafica. <br /> Notare come all'utente venga <strong>segnalato in tempo reale l'errata compilazione di un campo. </strong> <br /> Tutto il sito è facilmente navigabile anche da mobile")
 						label Nome
 						input.form-control.input-md(type="text" ng-model="user.name" name="name" placeholder="Nome" required)
 						.help-block(ng-messages="subscription.name.$error" ng-if="subscription.name.$touched")
@@ -47,21 +48,40 @@ block content
 							p.alert.alert-danger(ng-message="required") Campo obbligatorio
 					.col-md-6.col-sm-12.form-iscrizione
 						h2
-							| Formazione accademica
-						label Tipo istituto
-						input.form-control.input-md(type="text" ng-model="education" placeholder="Tipo istituto")
-						label Nome istituto
-						input.form-control.input-md(type="text" ng-model="education" placeholder="Nome istituto")
-						label Città
-						input.form-control.input-md(type="text" ng-model="education" placeholder="Città")
-						label Materie principali
-						input.form-control.input-md(type="text" ng-model="education" placeholder="Materie principali")
-						label Votazione finale
-						input.form-control.input-md(type="text" ng-model="education" placeholder="Votazione finale")
+							| Informazioni generali
+						label 
+							| Com'e' venuto a conoscenza dei nostri corsi:
+						input.form-control.input-md(type="text" ng-model="generalinfo.info1")
+						label
+							| Per quali ragioni ha deciso di iscriversi?
+						input.form-control.input-md(type="text" ng-model="generalinfo.info2")
+						label
+							| Quali risultati pensa di ottenere dal corso
+						input.form-control.input-md(type="text" ng-model="generalinfo.info3")
+						label
+							| Quali sono le sue aspirazioni per la futura attivita' professionale?
+						input.form-control.input-md(type="text" ng-model="generalinfo.info4")
+						label
+							| Note e osservazioni
+						input.form-control.input-md(type="text")
+					//- .col-md-6.col-sm-12.form-iscrizione
+					//- 	h2
+					//- 		| Formazione accademica
+					//- 	label Tipo istituto
+					//- 	input.form-control.input-md(type="text" ng-model="education" placeholder="Tipo istituto")
+					//- 	label Nome istituto
+					//- 	input.form-control.input-md(type="text" ng-model="education" placeholder="Nome istituto")
+					//- 	label Città
+					//- 	input.form-control.input-md(type="text" ng-model="education" placeholder="Città")
+					//- 	label Materie principali
+					//- 	input.form-control.input-md(type="text" ng-model="education" placeholder="Materie principali")
+					//- 	label Votazione finale
+					//- 	input.form-control.input-md(type="text" ng-model="education" placeholder="Votazione finale")
 				.row
 					.col-md-6.col-sm-12.form-iscrizione
 						h2
 							| Conoscenza lingue
+							i.fa.fa-question.fa-lg.tips(data-content="L'utente ha modo di salvare un numero a piacere di lingue, cosi come di corsi")
 						.row
 							.col-md-12
 								button.btn.btn-default(ng-click="addLanguage()") Salva lingua
@@ -85,25 +105,6 @@ block content
 										| {{level}}
 					.col-md-6.col-sm-12.form-iscrizione
 						h2
-							| Informazioni generali
-						label 
-							| Com'e' venuto a conoscenza dei nostri corsi:
-						input.form-control.input-md(type="text" ng-model="generalinfo.info1")
-						label
-							| Per quali ragioni ha deciso di iscriversi?
-						input.form-control.input-md(type="text" ng-model="generalinfo.info2")
-						label
-							| Quali risultati pensa di ottenere dal corso
-						input.form-control.input-md(type="text" ng-model="generalinfo.info3")
-						label
-							| Quali sono le sue aspirazioni per la futura attivita' professionale?
-						input.form-control.input-md(type="text" ng-model="generalinfo.info4")
-						label
-							| Note e osservazioni
-						input.form-control.input-md(type="text")
-				.row
-					.col-md-6.col-sm-12.form-iscrizione
-						h2
 							| Scelta del corso/i
 						button.btn.btn-default(ng-click="addLanguage()") Salva corso
 						select.form-control(ng-option="course as course.label for course in availableCourses track by course.id")
@@ -112,6 +113,8 @@ block content
 						//- 		select.form-control
 						//- 			option(ng-repeat="course in availableCourses")
 						//- 				{{course}}
+					
+				.row
 					.col-md-6.col-sm-12.form-iscrizione
 						h2
 							| Logistica
@@ -130,7 +133,6 @@ block content
 							label
 								input(type="checkbox" ng-model="logistic.room2")
 								| Alloggio in hotel a 2 stelle (camera doppia: 29 euro), colazione e navetta da e per il CdF inclusi 
-				.row
 					.col-md-6.col-sm-12.form-iscrizione
 						h2
 							| Visita idoneità psico-fisica
@@ -150,8 +152,9 @@ block content
 
 						P NB: Il costo della visita medica varia a seconda dalla/e mansione/i mansioni interessata/e e verra' comunicato all'interessato al momento della prenotazione.
 						P Per il rilascio della "Certificazione del requisito professionale" e per il rilascio della "Licenza Europea del Macchinista" dovra' essere presentata in originale la certificazione medica Mod SAN 6 che attesta l'idoneita' psico-fisica per la/e mansione/i interessata/e.
-
+				.row
 					.col-md-6.col-sm-12.form-iscrizione
 						button.btn.btn-default(ng-click="submit()" )
 							//- ng-disabled="subscription.$invalid"
 							| Vai
+						i.fa.fa-question.fa-lg.tips(data-content="Cliccando su Vai l'alangrafica verrà salvata e l'iutente riceverà una mail di conferma. Accedendo come amministratore si potranno vedere le anagrafiche salvate. ")

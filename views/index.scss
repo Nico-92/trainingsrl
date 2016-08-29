@@ -40,3 +40,21 @@ h2{
 		margin-bottom: 20px;
 	}
 }
+#modal-tips {
+  .modal-dialog {
+  	display: hidden;
+    width: 350px;
+    padding-top: 20%;
+  }
+  .modal-content {
+    padding: 20px 10px;
+  }
+  .btn {
+    border: 1px solid #000;
+    margin-top: 20px;
+  }
+}
+.tips{
+	padding: 10px;
+	cursor: pointer;
+}
