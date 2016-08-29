@@ -2,6 +2,10 @@ extends ../layout
 block content
   include ../header.jade
   .container(ng-controller='clientsController')
+      a(href="/dashboard")
+        i.fa.fa-chevron-left(style="padding-right: 20px;")
+        | Torna alla Dashboard
+      br
       i.fa.fa-question.fa-lg.tips(data-content="Qui si ha il controllo delle anagrafiche dei corsisti. <br /> Si possono <strong> cercare </strong>usando la barra i ricerca, e modificare od eliminare singolarmente. Potranno essere <strong> esportate in formato excel </strong>. Per ogni anagrafica si potranno <strong>collegare eventi, e stampare i relativi documenti</strong>")
       form
         .form-group
@@ -20,22 +24,29 @@ block content
                 |             
                 span.fa.fa-caret-up(ng-show="sortType == 'name' && sortReverse")
             td
-              a(href='#', ng-click="sortType = 'fish'; sortReverse = !sortReverse")
-                | Data iscrizione
-                span.fa.fa-caret-down(ng-show="sortType == 'fish' && !sortReverse")
+              a(href='#', ng-click="sortType = 'address'; sortReverse = !sortReverse")
+                | Residenza
+                span.fa.fa-caret-down(ng-show="sortType == 'address' && !sortReverse")
                 |             
-                span.fa.fa-caret-up(ng-show="sortType == 'fish' && sortReverse")
+                span.fa.fa-caret-up(ng-show="sortType == 'address' && sortReverse")
             |         
             td
-              a(href='#', ng-click="sortType = 'tastiness'; sortReverse = !sortReverse")
-                | Residenza
-                span.fa.fa-caret-down(ng-show="sortType == 'tastiness' && !sortReverse")
+              a(href='#', ng-click="sortType = 'submissiondate'; sortReverse = !sortReverse")
+                | Data iscrizione 
+                span.fa.fa-caret-down(ng-show="sortType == 'submissiondate' && !sortReverse")
                 |             
-                span.fa.fa-caret-up(ng-show="sortType == 'tastiness' && sortReverse")
+                span.fa.fa-caret-up(ng-show="sortType == 'submissiondate' && sortReverse")
+            td
+              i.fa.fa-question.fa-lg.tips(data-content="Da qui si possono compiere tutte le azioni sulla singola riga.<br /><strong>Prova a cliccare sull'icona del cestino per eliminare un'anagrafica. </strong> <br /> Con la matita sarà possibile modificare l'anagrafica e con la bandiera segnalarla, come promemoria. Si possono inoltre aggiungere ulteriori azioni.")
+
         tbody
           tr(ng-repeat='roll in sushi | orderBy:sortType:sortReverse | filter:searchFish')
             td {{ roll.name }}
             |         
-            td {{ roll.fish }}
+            td {{ roll.address }}
             |         
-            td {{ roll.tastiness }}
+            td {{ roll.submissiondate }}        
+            td
+              i.fa.fa-pencil.tips
+              i.fa.fa-trash.tips(ng-click="delete(roll.id)")
+              i.fa.fa-flag.tips

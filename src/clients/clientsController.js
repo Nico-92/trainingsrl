@@ -1,11 +1,21 @@
 var clientsController = function($scope, clientService) {
-    clientService.get().success(function(result){
-      console.log(result)
-      $scope.sushi = result;
-    });
+
+    function getClient() {
+        clientService.get().success(function(result) {
+            $scope.sushi = result;
+        });
+    };
+
+    getClient();
+
     $scope.sortType = 'name'; // set the default sort type
     $scope.sortReverse = false; // set the default sort order
     $scope.searchFish = ''; // set the default search/filter term
+    $scope.delete = function(id) {
+        clientService.del(id).success(function(result) {
+            getClient();
+        });
+    };
 
     // create the list of sushi rolls 
     // $scope.sushi = [{

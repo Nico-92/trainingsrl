@@ -33,24 +33,50 @@ var login = function(param, callback) {
 
 var createNewClient = function(param, callback) {
     connection.query('INSERT INTO anagrafiche SET ?', param.user, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows[0]);
+        if (err) {
+            console.log('ERRORE')
+            console.log(err)
+        } else {
+            callback(true)
+        }
+    });
+};
+
+var deleteClient = function(param, callback) {
+    console.log(param)
+    console.log('DELETE FROM anagrafiche WHERE id ="' + param + '"')
+    connection.query('DELETE FROM anagrafiche WHERE id ="' + param + '"', function(err, rows, fields) {
+        if (err) {
+            console.log('ERRORE')
+            console.log(err)
+        }else{
+            callback(true);
+        }
     });
 };
 
 var getClients = function(param, callback) {
     console.log('aaaaaaaa')
     connection.query('SELECT * FROM anagrafiche', function(err, rows, fields) {
-        if (err) throw err;
-        callback(rows)
+        if (err) {
+            console.log('ERRORE')
+            console.log(err)
+        } else {
+            console.log(rows)
+            callback(rows)
+        }
     });
 };
 
 var getClient = function(param, callback) {
-    connection.query('INSERT INTO anagrafiche SET ?', param.user, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows[0]);
-    });
+  /*  connection.query('DELETE FROM anagrafiche WHWRE id ="' + param.id + '"', function(err, rows, fields) {
+        if (err) {
+            console.log('ERRORE')
+            console.log(err)
+        }else{
+            callback(true);
+        }
+    });*/
 };
 
 
@@ -59,7 +85,8 @@ var exports = {
     login: login,
     createNewClient: createNewClient,
     getClient: getClient,
-    getClients: getClients
+    getClients: getClients,
+    deleteClient: deleteClient
 };
 
 module.exports = exports;

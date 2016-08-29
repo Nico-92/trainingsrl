@@ -34,6 +34,7 @@ var indexController = function($scope, dataService, clientService, $location) {
             window.location.href="/successo";
             // $location.path( "/successo" );
         }).error(function(error){
+            erroreIscrizione = true;
             console.log(error)
         });
     	console.log(objectToSend);

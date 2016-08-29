@@ -41,9 +41,7 @@ gulp.task('build_lib_scripts',function(){
             "bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
             "bower_components/angular-google-maps/dist/angular-google-maps.js",
             "bower_components/angular-cookie/angular-cookie.js",
-            "bower_components/imagesloaded/imagesloaded.pkgd.js",
-            "bower_components/sidr/jquery.sidr.min.js",
-            "bower_components/masonry/dist/masonry.pkgd.js"
+            "bower_components/moment/src/moment.js"
         ],
         filename: 'libs.min.js',
         dest: 'src',

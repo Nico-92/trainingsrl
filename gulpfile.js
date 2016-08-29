@@ -37,7 +37,7 @@ gulp.task('serve', ['copyAssetstoSrc', 'styles'], function() {
     // Start the $.express at the beginning of the task 
     $.express.run(['bin/www']);
     //live reload
-    gulp.watch(['app.js', 'routes/**/*.js', 'views/**/*.jade'], $.express.run);
+    gulp.watch(['app.js', 'routes/**/*.js', 'libraries/*.js', 'views/**/*.jade'], $.express.run);
     gulp.watch(['views/**/*.scss', 'views/*.scss'], ['styles']);
     gulp.watch(['views/**/*.js', 'views/**/*.html'], ['copyFiletoSrc'])
 });

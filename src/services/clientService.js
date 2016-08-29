@@ -3,6 +3,7 @@ app.factory('clientService', ['$http',
     	var service = {};
 		service.post = post;
         service.get = get;
+        service.del = del;
         service.getClient = getClient;
     	return service;
 
@@ -19,14 +20,21 @@ app.factory('clientService', ['$http',
         function get() {
             return $http({
                 method: 'GET',
-                url: '/api/client'
+                url: '/api/clients'
             });
         };
 
         function getClient(id) {
             return $http({
                 method: 'GET',
-                url: '/api/client/' + id
+                url: '/api/clients/' + id
+            });
+        };
+
+        function del(id) {
+            return $http({
+                method: 'DELETE',
+                url: '/api/clients/' + id
             });
         };
     }
