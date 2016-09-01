@@ -1,8 +1,42 @@
 .row.header
-	.col-md-3
+	.col-md-3.hidden-sm.hidden-xs
 		a(href="/")
 			img(src="/assets/images/logo-training.gif")
-	.col-md-9.login.text-right
+	.col-md-8.menu.hidden-sm.hidden-xs
+		a(href="")  / HOME  
+		a(href="")  / MISSION   
+		a(href="")  / FORMAZIONE  
+		a(href="")  / CORSI  
+		a(href="")  / CONSULENZA   
+		a(href="")  / CONTATTI
+	.col-md-1.login.text-right.hidden-sm.hidden-xs
 		i.fa.fa-question.fa-lg.tips(data-content="Clicca su <strong>Login</strong> per accedere all'aerea riservata. <br />Qui sotto invece ci sarà il menu per la navigazione")
 		a(href="/login")
 			button.btn.btn-default Login
+
+	#slide-nav.navbar.hidden-md.hidden-lg(role='navigation')
+		.container
+			.navbar-header
+				a.navbar-toggle
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a(href="/")
+					img(src="/assets/images/logo-training-mobile.gif")
+				a(href="/login")
+					button.btn.btn-default Login			
+			#slidemenu
+				ul.nav.navbar-nav
+					li.active
+						a(href="")  / HOME
+					li
+						a(href="")  / MISSION  
+					li 
+						a(href="")  / FORMAZIONE  
+					li
+						a(href="")  / CORSI  
+					li
+						a(href="")  / CONSULENZA   
+					li
+						a(href="")  / CONTATTI

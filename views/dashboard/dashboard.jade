@@ -5,20 +5,58 @@ block content
 		h1
 			| Dashboard
 			i.fa.fa-question.fa-lg.tips(data-content="Questa è la dashboard. Qui si potranno vedere tutti gli <strong>ultimi eventi</strong> relativi ad ogni sezione. <br /> Questo permette di avere sottocchio ogni aspetto della gestione. <br /> Verrà aggiunto anche un campo note per promemoria veloci o per lasciare note ai collaboratori.")
-	.row
-		.col-md-4
-			a(href="/clients")
-				p Anagrafiche
+	.row.text-center
+		.col-md-4.dashboard-container
+			.dashboard-item(style="background-color: #F44336")
+				a(href="/clients")
+					p.title 
+						i.fa.fa-file-text.fa-lg.icon
+						| Anagrafiche
+					p 24 anagrafiche totali
 			.alert.alert-info
-				| È stata creata una nuova anagrafica
-		.col-md-4
-			p Istruttori
-		.col-md-4
-			p Classi
-	.row
-		.col-md-4
-			p Cosri
-		.col-md-4
-			p Normative
-		.col-md-4
-			p Varie
+				| Mario Rossi ha inviato un'anagrafica
+			.alert.alert-info
+				| 5 anagrafiche in attesa di approvazione
+			.alert.alert-info
+				| 4 nuove anagrfiche nell'ultimo mese
+		.col-md-4.dashboard-container
+			.dashboard-item(style="background-color: #FFC107")
+				p.title 
+					i.fa.fa-user.fa-lg.icon
+					| Istruttori
+				p 3/5 Normative accettate
+			.alert.alert-info
+				| Nessun evento
+		.col-md-4.dashboard-container
+			.dashboard-item(style="background-color: #8BC34A")
+				p.title 
+					i.fa.fa-graduation-cap.fa-lg.icon
+					| Classi
+				p 4 classi attive
+			.alert.alert-info
+				| Una classe non raggiunge il numero minimo di iscritti
+	.row.text-center
+		.col-md-4.dashboard-container
+			.dashboard-item(style="background-color: #2196F3")
+				p.title Corsi
+				p Nessun evento
+			.alert.alert-info
+				| Nessun evento
+		.col-md-4.dashboard-container
+			.dashboard-item(style="background-color: #673AB7")
+				p.title 
+					i.fa.fa-book.fa-lg.icon
+					| Normative
+				p Nessun evento
+			.alert.alert-info
+				| Nuova normativa da inviare
+			.alert.alert-info
+				| Non tutte le normative attuali sono state accetate
+		.col-md-4.dashboard-container
+			.dashboard-item(style="background-color: #FF5722")
+				p.title
+					i.fa.fa-comment.fa-lg.icon 
+					| Messaggi
+				p 5 Messaggi da leggere	
+			.alert.alert-info
+				| Nessun nuovo messaggio
